@@ -10,9 +10,9 @@ import javax.ws.rs.core.Response;
 @ApplicationPath("/")
 @Path("/message")
 public class MicroblogApplication extends Application {
-    @GET
-    @Produces("text/plain")
-    public Response doGet() {
-        return Response.ok("Hello from Thorntail!").build();
-    }
+  @GET
+  @Produces("text/plain")
+  public Response doGet() {
+    return Response.ok("Hello from Thorntail!").build();
+  }
 }
