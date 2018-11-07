@@ -18,6 +18,14 @@
     <project.build.sourceEncoding>UTF-8</project.build.sourceEncoding>
   </properties>
 
+  <repositories>
+    <repository>
+      <id>primefaces</id>
+      <name>Primefaces Repository</name>
+      <url>https://repository.primefaces.org</url>
+    </repository>
+  </repositories>
+
   <dependencyManagement>
     <dependencies>
       <dependency>
@@ -46,6 +54,16 @@
       <groupId>org.jboss.spec.javax.faces</groupId>
       <artifactId>jboss-jsf-api_2.2_spec</artifactId>
       <version>2.2.14</version>
+    </dependency>
+    <dependency>
+      <groupId>org.primefaces</groupId>
+      <artifactId>primefaces</artifactId>
+      <version>6.2</version>
+    </dependency>
+    <dependency>
+      <groupId>org.primefaces.themes</groupId>
+      <artifactId>bootstrap</artifactId>
+      <version>1.0.10</version>
     </dependency>
   </dependencies>
 
