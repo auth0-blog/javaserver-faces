@@ -65,6 +65,16 @@
       <artifactId>bootstrap</artifactId>
       <version>1.0.10</version>
     </dependency>
+    <dependency>
+      <groupId>org.glassfish.soteria</groupId>
+      <artifactId>javax.security.enterprise</artifactId>
+      <version>1.0</version>
+    </dependency>
+    <dependency>
+      <groupId>com.auth0</groupId>
+      <artifactId>mvc-auth-commons</artifactId>
+      <version>1.0.0</version>
+    </dependency>
   </dependencies>
 
   <build>

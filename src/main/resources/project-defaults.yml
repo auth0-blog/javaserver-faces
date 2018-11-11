@@ -1,0 +1,6 @@
+auth0:
+  domain: blog-samples.auth0.com
+  clientId: O6pukV7km67P2cnT2sb13MV542PReOrw
+  clientSecret: Cap6-La72och3Sq34F3eGEzJ93snVWApeXFM9LFHuKWD5iD83C9QZfR5Zye0ByUB
+  scope: openid profile email
+  callbackUri: /callback
