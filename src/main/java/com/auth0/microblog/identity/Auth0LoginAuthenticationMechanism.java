@@ -20,14 +20,18 @@ import javax.servlet.http.HttpServletResponse;
 @AutoApplySession
 public class Auth0LoginAuthenticationMechanism implements HttpAuthenticationMechanism {
 
-  @Inject
   private Auth0AuthenticationConfig config;
-
-  @Inject
+  private IdentityStoreHandler identityStoreHandler;
   private AuthenticationController authenticationController;
 
   @Inject
-  private IdentityStoreHandler identityStoreHandler;
+  public Auth0LoginAuthenticationMechanism(Auth0AuthenticationConfig config, IdentityStoreHandler identityStoreHandler) {
+    this.config = config;
+    this.identityStoreHandler = identityStoreHandler;
+    this.authenticationController = AuthenticationController
+      .newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
+      .build();
+  }
 
   @Override
   public AuthenticationStatus validateRequest(HttpServletRequest req, HttpServletResponse res,
@@ -65,15 +69,9 @@ public class Auth0LoginAuthenticationMechanism implements HttpAuthenticationMech
   private String createLoginUrl(final HttpServletRequest req) {
     String redirectUri =
       req.getScheme() + "://" + req.getServerName() + ":" + req.getServerPort() + config.getCallbackUri();
-    return authenticationController.buildAuthorizeUrl(req, redirectUri)
+    return this.authenticationController.buildAuthorizeUrl(req, redirectUri)
       .withAudience(String.format("https://%s/userinfo", config.getDomain()))
       .withScope(config.getScope())
-      .build();
-  }
-
-  @Produces
-  public AuthenticationController authenticationController(Auth0AuthenticationConfig config) {
-    return AuthenticationController.newBuilder(config.getDomain(), config.getClientId(), config.getClientSecret())
       .build();
   }
 }
