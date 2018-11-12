@@ -1,13 +1,45 @@
 <?xml version='1.0' encoding='UTF-8' ?>
 <html xmlns="http://www.w3.org/1999/xhtml"
-      xmlns:ui="http://xmlns.jcp.org/jsf/facelets">
+      xmlns:ui="http://xmlns.jcp.org/jsf/facelets"
+      xmlns:h="http://xmlns.jcp.org/jsf/html"
+      xmlns:p="http://primefaces.org/ui">
 
 <body>
 
 <ui:composition template="./WEB-INF/template.xhtml">
 
   <ui:define name="content">
-    <h2>Secured Dashboard</h2>
+    <div class="row">
+      <div class="col-12">
+        <p>
+          <h:graphicImage styleClass="picture" value="#{dashboardController.picture}" />
+          <h:outputText value="#{dashboardController.userName}"/>
+        </p>
+        <p:panel header="Share your thoughts" style="margin-bottom:20px">
+          <h:form>
+            <div class="form-group">
+              <p:inputText placeholder="C'mon, express your mind."
+                           styleClass="form-control"
+                           id="content"
+                           required="true"
+                           value="#{dashboardController.content}"/>
+            </div>
+            <p:commandButton value="Add Micro Post" id="ajax" update=":messages:growl :microPosts content"
+                             actionListener="#{dashboardController.addMicroPost}"
+                             styleClass="ui-priority-primary"/>
+          </h:form>
+        </p:panel>
+      </div>
+    </div>
+    <div class="row">
+      <div class="col-12">
+        <p:dataTable var="microPost" id="microPosts" value="#{dashboardController.microPosts}">
+          <p:column headerText="Name">
+            <h:outputText value="#{microPost.content}" />
+          </p:column>
+        </p:dataTable>
+      </div>
+    </div>
   </ui:define>
 
 </ui:composition>
