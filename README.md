@@ -8,7 +8,7 @@ In this article, you will learn how to use Java EE (Enterprise Edition) technolo
 
 ```bash
 # build
-mvn clean package
+./mvnw clean package
 
 # run
 java -jar target/restful-endpoint-thorntail.jar
