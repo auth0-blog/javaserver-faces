@@ -2,7 +2,7 @@
 
 In this article, you will learn how to use Java EE (Enterprise Edition) technologies, such as JavaServer Faces (JSF), to build robust web applications.
 
-[Read more here](https://auth0.com/blog/developing-robust-web-apps-with-javaserver-faces-and-java-ee).
+[Read more here](https://auth0.com/blog/developing-robust-web-apps-with-javaserver-faces-and-java-ee/).
 
 ## Useful Commands
 
